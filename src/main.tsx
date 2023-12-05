@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
     {
         path: `${getBase()}/classes_of_ships/:id/`,
         element: <Ship_Page />
+    },
+    {
+        path: `*`,
+        element: <Ship_List_Page />
     }
 ])
 ReactDOM.createRoot(document.getElementById('root')!).render(

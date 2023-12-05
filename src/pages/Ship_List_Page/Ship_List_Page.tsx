@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import { Ship, get_Ship_List, get_Ship } from '../../modules/getDataFromAPI'
+import { Ship, get_Ship_List } from '../../modules/getDataFromAPI'
 import Ship_Card from '../../components/Ship_Card/Ship_Card';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import "./Ship_List_Page.css"
-import { FilterData, Filter }  from '../../components/Filter/Filter';
+import { Filter }  from '../../components/Filter/Filter';
 
 import { Container } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
@@ -22,8 +22,6 @@ const ProductListPage: FC = () => {
     const location = useLocation();
     const request = new URLSearchParams(location.search);
     const requestName = request.get('name_filter');
-    const request_stuff_max = request.get('stuff_max');
-    const request_stuff_min = request.get('stuff_max');
 
     const title = (requestName ? requestName : '');
     useEffect(() => {

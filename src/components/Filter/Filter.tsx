@@ -3,14 +3,13 @@ import { useState } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 
 export interface FilterData {
     title: string
 }
 
-export const Filter: FC<FilterData> = ({ title, stuff_min, stuff_max}) => {
+export const Filter: FC<FilterData> = ({ title}) => {
     const [inputTitle, setInputTitle] = useState(title);
 
 

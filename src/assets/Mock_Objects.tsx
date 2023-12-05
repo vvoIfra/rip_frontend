@@ -1,12 +1,12 @@
 export interface Ship {
     ship_id: number,
     name: string,
-    rang?: number,
-    stuff?: number,
+    rang?: string,
+    stuff?: string,
     status: string,
     type?: string,
     project: string,
-    description?: string,
+    description: string,
     photo_data: string
 }
 
@@ -14,8 +14,8 @@ export const default_Ship = (id: number): Ship => {
     return {
     ship_id: id,
     name: "Базовый корабль",
-    rang: id%4+1,
-    stuff: id*10,
+    rang: (id%4+1).toString(),
+    stuff: (id*10).toString(),
     status: "A",
     type: "Корабль",
     project: "Проект корабля",
