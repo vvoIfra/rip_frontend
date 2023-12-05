@@ -1,0 +1,13 @@
+#header {
+    background-image: url("./assets/bck.jpg");
+    min-height:300px;
+    position:relative;
+    background-size: 100% 130%;
+    }
+.navbar{
+	position:absolute;
+	bottom:0;
+}
+.container{
+	min-width:100%
+}
