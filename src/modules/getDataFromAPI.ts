@@ -22,6 +22,7 @@ export const get_Ship_List = async ( name: string): Promise<Ship[]> => {
     try {
         const response = await fetch(`http://127.0.0.1:8000/classes_of_ships?name_filter=${name}`)
         const result = await response.json()
+        
         for (let i = 0; i < result.length;i++ ) {
             if(result[i]['photo_data']){}else{
                 result[i]['photo_data'] = default_pic
@@ -32,6 +33,7 @@ export const get_Ship_List = async ( name: string): Promise<Ship[]> => {
     } catch (error) {
         console.log('Error')
         let result = []
+
         for (let i = 1; i <= 5; ++i) {
             result.push(default_Ship(i))
         }
