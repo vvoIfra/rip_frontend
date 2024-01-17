@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Button } from 'react-bootstrap'
+import { Link } from "react-router-dom";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './Ship_Info.css'
 
