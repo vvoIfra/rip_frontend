@@ -1,34 +1,30 @@
 
 import ReactDOM from 'react-dom/client'
-import {
-    createHashRouter,
-    RouterProvider
-  } from 'react-router-dom';
-
 // import MainPage from './pages/MainPage/MainPage';
 import Ship_List_Page from './pages/Ship_List_Page/Ship_List_Page'
 import Ship_Page from './pages/Ship_Page/Ship_Page'
 import My_Navbar from './components/Navbar/Navbar'
 import './main.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-const router = createHashRouter([
-    // {
-    //     path: '/',
-    //     element: <MainPage />
-    // },
-    {
-        path: `*/*`,
-        element: <Ship_List_Page />
-    },
-    {
-        path: `/#/classes_of_ships/:id/`,
-        element: <Ship_Page />
-    }
-    
-
-])
+const router = createBrowserRouter(
+    [
+        {
+            path: '/rip_frontend/',
+            element: <Ship_List_Page />
+        },
+        {
+            path: '/rip_frontend/classes_of_ships',
+            element: <Ship_List_Page />
+        },
+        {
+            path: 'rip_frontend/classes_of_ships/:ship_id',
+            element: <Ship_Page />
+        }
+    ]
+)
 ReactDOM.createRoot(document.getElementById('root')!).render(
    // <React.StrictMode>
         <Container>
