@@ -20,7 +20,7 @@ const router = createBrowserRouter(
             element: <Ship_List_Page />
         },
         {
-            path: 'rip_frontend/classes_of_ships/:ship_id',
+            path: 'rip_frontend/classes_of_ships/:id',
             element: <Ship_Page />
         }
     ]

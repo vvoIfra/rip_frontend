@@ -7,7 +7,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { Container, Row } from 'react-bootstrap';
 import { getBase } from '../../../path_config.ts';
 
-const ProductPage: FC = () => {
+const Ship_Page: FC = () => {
     const { id } = useParams();
 
     const [ship, setShip] = useState<Ship>();
@@ -47,4 +47,4 @@ const ProductPage: FC = () => {
     )
 }
 
-export default ProductPage;
+export default Ship_Page;
