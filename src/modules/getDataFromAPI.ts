@@ -35,11 +35,16 @@ export const get_Ship_List = async ( name: string): Promise<Ship[]> => {
         let result = []
 
         for (let i = 1; i <= 5; ++i) {
-            result.push(default_Ship(i))
+            if(default_Ship(i).name.includes(name.toLowerCase())){
+                result.push(default_Ship(i))
+            }
+            
         }
+        console.log(name)
         result = result.filter((ship) => {
-            return (name == '' || ship.name.toLowerCase().includes(name.toLowerCase()))
+            return ship.name.toLowerCase().includes(name.toLowerCase())
         })
+        console.log(result)
         return result
     }
     

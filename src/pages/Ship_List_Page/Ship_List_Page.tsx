@@ -23,7 +23,7 @@ const ProductListPage: FC = () => {
     const request = new URLSearchParams(location.search);
     const requestName = request.get('name_filter');
 
-    const title = (requestName ? requestName : '');
+    const [title,setTitle] = useState(requestName ? requestName : '');
     useEffect(() => {
      get_Ship_List(title)
             .then((response) => {
@@ -37,6 +37,7 @@ const ProductListPage: FC = () => {
             <Col style={{ width: "22%", margin: "30px" }}>
                     <Filter
                         title={title}
+                        changeTitle={setTitle}
                         count={count}
                         send = {setCount}
                     />
