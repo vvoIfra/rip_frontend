@@ -17,7 +17,7 @@ import Col from 'react-bootstrap/Col';
 
 const ProductListPage: FC = () => {
     const [ships, setProducts] = useState<Ship[]>([]);
-
+    const [count,setCount] = useState(0)
 
     const location = useLocation();
     const request = new URLSearchParams(location.search);
@@ -29,7 +29,7 @@ const ProductListPage: FC = () => {
             .then((response) => {
                 setProducts(response);
             });
-    },[]);
+    },[count]);
     return (
         <Container>
 
@@ -37,6 +37,8 @@ const ProductListPage: FC = () => {
             <Col style={{ width: "22%", margin: "30px" }}>
                     <Filter
                         title={title}
+                        count={count}
+                        send = {setCount}
                     />
                 </Col>
                 <Breadcrumbs pages={[]} />
