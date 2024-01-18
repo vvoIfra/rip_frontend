@@ -17,11 +17,14 @@ export const Filter: FC<FilterData> = ({ title,count,send}) => {
 
     return (
         <Container id="filter">
-            <form action="" method="get" id="filter-form" onSubmit={()=>{send(count+1)}}>
                     <Row style={{ display: "flex" }}>
-                        <input className="filter-input" name="name_filter" type="text" size={30} placeholder="Введите название" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} /> 
+                        <div>
+                        <input className="filter-input" name="name_filter" type="text" size={30} placeholder="Введите название" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} />
+                        </div>
+                        <div>
+                        <input type="button" onSubmit={()=>{send(count+1)}} value='Поиск'/>
+                            </div> 
                     </Row>
-            </form>
         </Container>
     )
 }
