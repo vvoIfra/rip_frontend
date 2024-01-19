@@ -1,11 +1,11 @@
-import { default_Ship } from "../assets/Mock_Objects"
+
 import { default_list } from "../assets/Mock_Objects"
 
 export interface Ship {
     ship_id: number,
     name: string,
     rang?: Number,
-    stuff?: string,
+    stuff?: Number,
     status: string,
     type?: string,
     project: string,

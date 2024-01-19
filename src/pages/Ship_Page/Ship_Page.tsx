@@ -17,8 +17,8 @@ const Ship_Page: FC = () => {
         let params: Param[] = []
         source.description && params.push({key: "Описание", value: source.description})
         source.type && params.push({key: "Тип", value: source.type})
-        source.stuff &&  params.push({key: "Кол-во экипажа", value: source.stuff})
-        source.rang && params.push({key: "Ранг", value: source.rang})
+        source.stuff &&  params.push({key: "Кол-во экипажа", value: String(source.stuff)})
+        source.rang && params.push({key: "Ранг", value: String(source.rang)})
         source.project && params.push({key: "Проект", value: source.project})
         return params
     }
