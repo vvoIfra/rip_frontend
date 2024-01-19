@@ -1,13 +1,24 @@
 import { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Ship, get_Ship } from '../../modules/getDataFromAPI'
 import Ship_Info, {Param} from '../../components/Ship_Info/Ship_Info'
 import "./Ship_Page.css"
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { Container, Row } from 'react-bootstrap';
-import { getBase } from '../../../path_config.ts';
+import axios from 'axios'
+import My_Navbar_Without_Cart from '../../components/Navbar/Navbar';
 
-const ProductPage: FC = () => {
+export interface Ship {
+    ship_id: number,
+    name: string,
+    rang?: string,
+    stuff?: string,
+    status: string,
+    type?: string,
+    project: string,
+    description: string,
+    photo_data: string
+}
+
+const Ship_Page: FC = () => {
     const { id } = useParams();
 
     const [ship, setShip] = useState<Ship>();
@@ -15,7 +26,6 @@ const ProductPage: FC = () => {
 
     const getParams = (source: Ship) => {
         let params: Param[] = []
-        source.description && params.push({key: "Описание", value: source.description})
         source.type && params.push({key: "Тип", value: source.type})
         source.stuff &&  params.push({key: "Кол-во экипажа", value: source.stuff})
         source.rang && params.push({key: "Ранг", value: source.rang})
@@ -23,28 +33,25 @@ const ProductPage: FC = () => {
         return params
     }
 
+    const get_Ship = async () => {
+        const {data} = await axios(`/api/classes_of_ships/${id}`, {
+            method: "Get",
+        })
+        setShip(data);
+        setParameters(getParams(data));
+    }
     useEffect(() => {
-        id && get_Ship(id)
-            .then((response) => {
-                setShip(response);
-                setParameters(getParams(response));
-            })
-            .then(() => {
-                console.log(ship);
-                console.log(parameters);
-            })
+        get_Ship()
     }, [id]);
 
     return (
         <Container>
+            <My_Navbar_Without_Cart/>
             <Row>
-                {id && ship && <Breadcrumbs pages={[ { link: `${getBase()}/classes_of_ships/${id}/`, title: `${ship.name}` } ]} />}
-            </Row>
-            <Row>
-                {ship && parameters && id && <Ship_Info ship_id={parseInt(id)} description={ship.description} parameters={parameters} photo_data={ship.photo_data} />}
+                {ship && parameters && id && <Ship_Info ship_id={parseInt(id)} description={ship.description} name={ship.name} parameters={parameters} photo_data={ship.photo_data} />}
             </Row>
         </Container>
     )
 }
 
-export default ProductPage;
+export default Ship_Page;

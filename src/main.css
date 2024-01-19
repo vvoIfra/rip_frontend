@@ -1,12 +1,18 @@
-#header {
-    background-image: url("./assets/bck.jpg");
-    min-height:300px;
-    position:relative;
-    background-size: 100% 130%;
-    }
+.box{    margin-top: 10px;
+    display: contents;}
+
 .navbar{
-	position:absolute;
-	bottom:0;
+    bottom: unset !important;
+    position: relative !important;
+    display: flex;
+    height: 350px;
+    background: url("./assets/bck.jpg");
+    background-size: 100% 130%;
+    width: 100%;
+}
+[id='1']{
+    align-self: flex-end;
+
 }
 .container{
 	min-width:100%
