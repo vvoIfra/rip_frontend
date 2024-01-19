@@ -38,7 +38,7 @@ const Ship_Info: FC<Props> = ({ ship_id, description, photo_data , parameters}) 
         </tbody>
 
             </table>
-            <Link to={'/rip_frontend/'} style={{ textDecoration: "None" }} className='breadcrumb-name'>Подробнее</Link>
+            <Link to={'/rip_frontend/'} style={{ textDecoration: "None" }} className='breadcrumb-name'>Назад</Link>
         </div>
     </div>
 )

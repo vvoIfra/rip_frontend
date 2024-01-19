@@ -1,9 +1,10 @@
 import { default_Ship } from "../assets/Mock_Objects"
+import { default_list } from "../assets/Mock_Objects"
 
 export interface Ship {
     ship_id: number,
     name: string,
-    rang?: string,
+    rang?: Number,
     stuff?: string,
     status: string,
     type?: string,
@@ -20,7 +21,7 @@ export const get_Ship_List = async ( name: string): Promise<Ship[]> => {
     //     .then((response) => response.json())
     //     .catch(() => [])
     try {
-        const response = await fetch(`http://127.0.0.1:8000/classes_of_ships?name_filter=${name}`)
+        const response = await fetch(`/api/classes_of_ships?name_filter=${name}`)
         const result = await response.json()
         
         for (let i = 0; i < result.length;i++ ) {
@@ -32,14 +33,7 @@ export const get_Ship_List = async ( name: string): Promise<Ship[]> => {
         return result
     } catch (error) {
         console.log('Error')
-        let result = []
-
-        for (let i = 1; i <= 5; ++i) {
-            if(default_Ship(i).name.includes(name.toLowerCase())){
-                result.push(default_Ship(i))
-            }
-            
-        }
+        let result = default_list
         console.log(name)
         result = result.filter((ship) => {
             return ship.name.toLowerCase().includes(name.toLowerCase())
@@ -56,11 +50,11 @@ export const get_Ship = async (id: string): Promise<Ship> => {
     //     .then((response) => response.json())
     //     .catch(() => undefined)
     try {
-        const response = await fetch(`http://127.0.0.1:8000/classes_of_ships/${id}/`)
+        const response = await fetch(`/api/classes_of_ships/${id}/`)
         const result = await response.json()
         return result
     } catch (error) {
-        return default_Ship(Number(id))
+        return default_list[Number(id)-1]
     }
     
 }
