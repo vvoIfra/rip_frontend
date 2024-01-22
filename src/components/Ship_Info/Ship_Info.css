@@ -3,7 +3,6 @@
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 1500px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -29,3 +28,45 @@
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
+
+
+
+@media (max-width: 370px) {
+    .card-text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 7; /* number of lines to show */
+                line-clamp: 7;
+        -webkit-box-orient: vertical;
+    }}
+
+@media (max-width: 270px) {
+    .card-text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* number of lines to show */
+                line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }}
+
+@media (max-width: 200px) {
+    .card-text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+                line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }}
+
+    @media (max-width: 150px) {
+        .card-text{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* number of lines to show */
+                    line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }}

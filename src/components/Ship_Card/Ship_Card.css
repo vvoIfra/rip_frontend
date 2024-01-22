@@ -57,3 +57,13 @@
     top: -40px;
     transform: translateX(-50%);
 }
+
+@media (max-width: 400px) {
+    .card-text{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+                line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }}

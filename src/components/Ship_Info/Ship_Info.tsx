@@ -25,15 +25,15 @@ const Ship_Info: FC<Props> = ({ ship_id, description, photo_data , parameters}) 
             <div className="product-bar">
                 <label htmlFor="product-params" className="product-params-text">{description}</label>
             </div>
-        <table className = 'styled-table'>
+        <table className = 'styled-table' style={{"width":"100%"}}>
         <thead>
             <th>Параметр</th> <th>Значение</th>
         </thead>
         <tbody>
             {parameters && parameters.map((param) => (
                     param.value && <tr>
-                <td> {param.key}</td>
-                <td> {param.value}</td>
+                <td style={{"width":"20%"}}> {param.key}</td>
+                <td style={{"width":"80%"}}> {param.value}</td>
             </tr>))}
         </tbody>
 
